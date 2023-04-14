@@ -27,15 +27,21 @@ class MyButton: AppCompatButton {
         init()
     }
 
+    // overriding 'onDraw'
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
+        // setting on 'isEnabled' condition
         background = if(isEnabled) enabledBackground else disabledBackground
+
+        // sets another TextView attributes
         setTextColor(txtColor)
         textSize = 12f
         gravity = Gravity.CENTER
         text = if(isEnabled) "Submit" else "Fill first"
     }
 
+    // set class attributes
     private fun init() {
         txtColor = ContextCompat.getColor(context, android.R.color.background_light)
         enabledBackground = ContextCompat.getDrawable(context, R.drawable.bg_button) as Drawable
